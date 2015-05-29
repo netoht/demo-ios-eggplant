@@ -1,10 +1,13 @@
 # ios with swift
 
+# Interface Builder
+
 storyboard - view que é exibida para o usuário final, mas podemos ter várias views. Ela também é conectada com a lógica da aplicação, recebendo o nome de View Controller.
 
-# Interface Builder
 IB - interface builder
+
 @IBOutlet - conectar objetos presentes na tela
+
 @IBAction - conectar objetos para executar uma ação
 
 A classe requer que todo atributo seja inicializado, para evitar a inicialização adicione uma exclamação.
