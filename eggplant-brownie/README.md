@@ -1,4 +1,4 @@
-# ios with swift
+# ios com swift
 
 # Interface Builder
 
@@ -24,7 +24,7 @@ Ex:
 
 # Declaração de Função, parâmetros e retorno
 Exemplo de função com parâmetros:
-```
+```swift
 func add(name:String, calories:Double) {
     println("adding \(name) \(calories)")
 }
@@ -39,14 +39,14 @@ func allCalories(calories:Array<Double>) -> Double {
 ```
 
 # Declaração de arrays
-```
+```swift
 let items = [] // generico
 let items:Array<Double> = [] // array de double
 let calories:Array<Double> = [50.5, 100, 300, 500]
 ```
 
 # Comentários
-```
+```swift
 // comentário de uma linha
 
 /* 
@@ -57,7 +57,7 @@ let calories:Array<Double> = [50.5, 100, 300, 500]
 ```
 
 # Declaração de loops for
-```
+```swift
 let calories:Array<Double> = [50.5, 100, 300, 500]
 
 for (var i=0; i < calories.count; i++) {
@@ -78,7 +78,7 @@ for i in calories { // percorrendo todos os valores do array atribuídos em i
 ```
 
 # Cuidados com operações matemáticas
-```
+```swift
 let calories:Array<Double> = [50.5, 100, 300, 500]
 
 let total = 1000.0 // Double
@@ -88,7 +88,7 @@ let avg = total / Double(calories.count) // deve ser explícito
 ```
 
 # Orientação a objetos (Classes básicas e variáveis optinal)
-```
+```swift
 class Meal {
     var name:String? // ? (optional), pode ou não ter valor (nil)
     var happiness:Int! // variavel que pode ser
@@ -110,7 +110,7 @@ if let name = brownie.name { // não utiliza os parênteses
 ```
 
 # Orientação a objetos (Construtor e métodos)
-```
+```swift
 class Meal {
     var name:String
     var happiness:Int
