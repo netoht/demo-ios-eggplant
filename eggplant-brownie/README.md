@@ -2,25 +2,25 @@
 
 # Interface Builder
 
-storyboard - view que é exibida para o usuário final, mas podemos ter várias views. Ela também é conectada com a lógica da aplicação, recebendo o nome de View Controller.
+`storyboard` - view que é exibida para o usuário final, mas podemos ter várias views. Ela também é conectada com a lógica da aplicação, recebendo o nome de View Controller.
 
-IB - interface builder
+`IB` - interface builder
 
-@IBOutlet - conectar objetos presentes na tela
+`@IBOutlet` - conectar objetos presentes na tela
 
-@IBAction - conectar objetos para executar uma ação
+`@IBAction` - conectar objetos para executar uma ação
 
 A classe requer que todo atributo seja inicializado, para evitar a inicialização adicione uma exclamação.
 Ex: 
-@IBOutlet var nameField:UITextField!
+`@IBOutlet var nameField:UITextField!`
 
 # Declaração de variáveis
 - var: variável
 - let: constante
 - Para concatenar string com variáveis basta utilizar o `\(variavel)`
-- O ponto e vírgula no final de uma declaração é opcional (evite o uso)
+- O ponto e vírgula `;` no final de uma declaração é opcional (**evite o uso**)
 - Adicionando tipo da variável. Ex: `let name:String = "My Name"`
-- Tipos de variváveis básicas: :String, :Int, :Double, :Bool
+- Tipos de variváveis básicas: `:String`, `:Int`, `:Double`, `:Bool`
 
 # Declaração de Função, parâmetros e retorno
 Exemplo de função com parâmetros:
@@ -147,5 +147,5 @@ println(brownie.allCalories())
 ```
 
 # Boas práticas para grupos de diretórios
-- Ao criar grupos dentro do xcode ele não cria o diretório no disco, cria apenas virtual
-- Crie primeiro os diretórios no disco e depois adicione-os como grupos no projeto dentro do xcode
+- Ao criar grupos dentro do `xcode` ele não cria o diretório no disco, cria apenas virtual
+- Crie primeiro os diretórios no disco e depois adicione-os como grupos no projeto dentro do `xcode`
