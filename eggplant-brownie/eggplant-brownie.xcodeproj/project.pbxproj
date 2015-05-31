@@ -10,6 +10,9 @@
 		C671F9A31B1A44D600298645 /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C671F9A21B1A44D600298645 /* MealsTableViewController.swift */; };
 		C671F9A71B1A5C2100298645 /* NewItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C671F9A51B1A5C2100298645 /* NewItemViewController.xib */; };
 		C671F9A91B1A5C8A00298645 /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C671F9A81B1A5C8A00298645 /* NewItemViewController.swift */; };
+		C671F9AB1B1A727600298645 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C671F9AA1B1A727600298645 /* Alert.swift */; };
+		C671F9AD1B1BB24C00298645 /* RemoveMealController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C671F9AC1B1BB24C00298645 /* RemoveMealController.swift */; };
+		C671F9AF1B1BBCE200298645 /* Dao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C671F9AE1B1BBCE200298645 /* Dao.swift */; };
 		C69159481B1826F000D3D69F /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69159471B1826EF00D3D69F /* Meal.swift */; };
 		C691594B1B18279900D3D69F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C691594A1B18279900D3D69F /* Item.swift */; };
 		C691594F1B182A2500D3D69F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C691594E1B182A2500D3D69F /* ViewController.swift */; };
@@ -34,6 +37,9 @@
 		C671F9A21B1A44D600298645 /* MealsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsTableViewController.swift; sourceTree = "<group>"; };
 		C671F9A51B1A5C2100298645 /* NewItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewItemViewController.xib; sourceTree = "<group>"; };
 		C671F9A81B1A5C8A00298645 /* NewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
+		C671F9AA1B1A727600298645 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		C671F9AC1B1BB24C00298645 /* RemoveMealController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveMealController.swift; sourceTree = "<group>"; };
+		C671F9AE1B1BBCE200298645 /* Dao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dao.swift; sourceTree = "<group>"; };
 		C69159471B1826EF00D3D69F /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		C691594A1B18279900D3D69F /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		C691594E1B182A2500D3D69F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "eggplant-brownie/viewcontrollers/ViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -72,6 +78,7 @@
 			children = (
 				C69159471B1826EF00D3D69F /* Meal.swift */,
 				C691594A1B18279900D3D69F /* Item.swift */,
+				C671F9AE1B1BBCE200298645 /* Dao.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -91,6 +98,8 @@
 			children = (
 				C6C084491B18094A00A33073 /* Main.storyboard */,
 				C671F9A51B1A5C2100298645 /* NewItemViewController.xib */,
+				C671F9AA1B1A727600298645 /* Alert.swift */,
+				C671F9AC1B1BB24C00298645 /* RemoveMealController.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -259,7 +268,10 @@
 				C671F9A91B1A5C8A00298645 /* NewItemViewController.swift in Sources */,
 				C691594B1B18279900D3D69F /* Item.swift in Sources */,
 				C69159481B1826F000D3D69F /* Meal.swift in Sources */,
+				C671F9AF1B1BBCE200298645 /* Dao.swift in Sources */,
 				C6C084461B18094A00A33073 /* AppDelegate.swift in Sources */,
+				C671F9AD1B1BB24C00298645 /* RemoveMealController.swift in Sources */,
+				C671F9AB1B1A727600298645 /* Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

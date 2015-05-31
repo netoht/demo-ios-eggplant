@@ -24,14 +24,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet var happinessField:UITextField?
     @IBOutlet var tableView:UITableView?
     var delegate: AddAMealDelegate? // utilizando o padrão protocol
-    var items = [
-        Item(name: "Eggplant Brownie", calories: 10),
-        Item(name: "Zucchini Muffin", calories: 10),
-        Item(name: "Cookie", calories: 10),
-        Item(name: "Chocolate oil", calories: 500),
-        Item(name: "Chocolate frosting", calories: 1000),
-        Item(name: "Chocolate chip", calories: 1000)
-    ]
+    var items = Array<Item>()
     var selected = Array<Item>()
     
     override func viewDidLoad() {
@@ -41,33 +34,39 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             action: Selector("showNewItem"))
         
         navigationItem.rightBarButtonItem = newItemButton
+        
+        self.items = Dao().loadItems()
     }
     
     func showNewItem() {
         let newItem = NewItemViewController(delegate: self)
         if let navigation = navigationController {
             navigation.pushViewController(newItem, animated: true)
+        } else {
+            Alert(controller:self).show()
         }
     }
     
     func add(item: Item) {
         items.append(item)
-        if tableView == nil {
-            return
+        Dao().saveItems(items)
+        if let table = tableView {
+            table.reloadData()
+        } else {
+            Alert(controller:self).show(message: "Unexpected error, but the item was added")
         }
-        tableView!.reloadData()
     }
     
-    @IBAction func add() {
+    func getMealFromForm() -> Meal? {
         if nameField == nil || happinessField == nil {
-            return
+            return nil
         }
         
         let name = nameField!.text
         let happiness = happinessField!.text.toInt()
         
         if happiness == nil {
-            return
+            return nil
         }
         
         let meal = Meal(name: name, happiness: happiness!)
@@ -75,15 +74,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         println("eaten: \(meal.name), \(meal.happiness), \(meal.items)")
         
-        if delegate == nil {
-            return
+        return meal;
+    }
+    
+    @IBAction func add() {
+        if let meal = getMealFromForm() {  // essa é uma boa prática para extrair o valor de um optional
+            if let meals = delegate {
+                meals.add(meal)
+                if let navigation = self.navigationController {
+                    navigation.popViewControllerAnimated(true)
+                } else {
+                    Alert(controller: self).show(message: "Unexpected error, but the meal was added.")
+                }
+                return
+            }
         }
-        
-        delegate!.add(meal)
-        
-        if let navigation = self.navigationController {
-            navigation.popViewControllerAnimated(true)
-        }
+        Alert(controller: self).show()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -99,20 +105,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        if cell == nil {
-            return
-        }
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
         
-        let item = items[indexPath.row]
-        if cell!.accessoryType == UITableViewCellAccessoryType.None {
-            cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
-            selected.append(item)
-        } else {
-            cell!.accessoryType = UITableViewCellAccessoryType.None
-            if let position = find(selected, item) {
-                selected.removeAtIndex(position)
+            let item = items[indexPath.row]
+            if cell.accessoryType == UITableViewCellAccessoryType.None {
+                cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+                selected.append(item)
+            } else {
+                cell.accessoryType = UITableViewCellAccessoryType.None
+                if let position = find(selected, item) {
+                    selected.removeAtIndex(position)
+                } else {
+                    Alert(controller:self).show()
+                }
             }
+        } else {
+            Alert(controller:self).show()
         }
     }
 }

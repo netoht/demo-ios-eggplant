@@ -13,7 +13,7 @@ import Foundation
  Equatable e criar um método global (ou seja, fora da classe) ==(object_1: T, object_2: T) e fazer a comparação dentro dela 
  semelhante ao método equals do Java
 */
-class Item : Equatable { // Equatable serve para a classe ser comparada
+class Item : NSObject, Equatable, NSCoding { // Equatable serve para a classe ser comparada
 
     let name:String
     let calories:Double
@@ -21,6 +21,16 @@ class Item : Equatable { // Equatable serve para a classe ser comparada
     init(name:String, calories:Double) {
         self.name = name
         self.calories = calories
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        self.name = aDecoder.decodeObjectForKey("name") as String
+        self.calories = aDecoder.decodeDoubleForKey("calories")
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(name, forKey: "name")
+        aCoder.encodeDouble(calories, forKey: "calories")
     }
 }
 
